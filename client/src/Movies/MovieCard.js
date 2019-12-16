@@ -1,7 +1,6 @@
 import React from "react";
 
-const MovieCard = ({ movie }) => {
-  console.log(movie);
+const MovieCard = ({ movie, addToSavedList }) => {
   if (!movie) {
     return <div>Loading movie information...</div>;
   } else {
@@ -25,7 +24,16 @@ const MovieCard = ({ movie }) => {
             </div>
           ))}
         </div>
-        <div className="save-button">Save</div>
+        <div
+          className="save-button"
+          onClick={e => {
+            e.stopPropagation();
+            e.preventDefault();
+            addToSavedList(movie);
+          }}
+        >
+          Save
+        </div>
       </div>
     );
   }

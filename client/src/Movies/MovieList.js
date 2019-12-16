@@ -4,7 +4,7 @@ import axios from "axios";
 
 import MovieCard from "./MovieCard";
 
-const MovieList = props => {
+const MovieList = ({ addToSavedList }) => {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     const getMovies = () => {
@@ -25,7 +25,7 @@ const MovieList = props => {
     <div className="movie-list">
       {movies.map(movie => (
         <Link key={movie.id} to={`/movies/${movie.id}`}>
-          <MovieCard movie={movie} />
+          <MovieCard movie={movie} addToSavedList={addToSavedList} />
         </Link>
       ))}
     </div>

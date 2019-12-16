@@ -4,7 +4,7 @@ import axios from "axios";
 
 import MovieCard from "./MovieCard";
 
-const Movie = () => {
+const Movie = ({ addToSavedList }) => {
   const [movie, setMovie] = useState();
   const { id } = useParams();
 
@@ -21,11 +21,11 @@ const Movie = () => {
 
   // Uncomment this only when you have moved on to the stretch goals
   // const saveMovie = () => {
-  //   const addToSavedList = props.addToSavedList;
-  //   addToSavedList(movie)
-  // }
+  //   const addToSavedList = addToSavedList;
+  //   addToSavedList(movie);
+  // };
 
-  return <MovieCard movie={movie}></MovieCard>;
+  return <MovieCard movie={movie} addToSavedList={addToSavedList}></MovieCard>;
 };
 
 export default Movie;
